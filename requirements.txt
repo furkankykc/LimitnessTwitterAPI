@@ -1,0 +1,3 @@
+git+git://github.com/furkankykc/TwitterBot@master
+cassandra-driver
+Flask
