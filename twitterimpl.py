@@ -25,7 +25,7 @@ api = None
 class limitnessTwitter():
 
 
-    def __init__(self,accList):
+    def __init__(self,accList=[]):
 
         self.cluster = None
         self.connectCluster()
@@ -86,7 +86,24 @@ class limitnessTwitter():
 
 
 
-    def getProfile(self,who,cpt=90):
+    def getProfile(self,who,cpt=20):
+        l = []
+        count = self.api.getUserTweetCount(who)
+        if(count!=0 and count<cpt):
+            pageCount=1
+        elif(count>cpt):
+            pageCount= round(count/cpt)+1
+        c = count
+        for i in range(pageCount):
+            try:
+                l.append(self.api.getTweetsFrom(who, count=cpt,page=i))
+            except tweepy.RateLimitError:
+                self.makinaSec()
+            c -= cpt
+            print(c)
+        return l
+
+    def getHashtag(self,who,cpt=90):
         l = []
         count = self.api.getUserTweetCount(who)
         if(count!=0 and count<cpt):
@@ -96,8 +113,7 @@ class limitnessTwitter():
         c = count
         for i in range(pageCount):
             self.makinaSec()
-            l.append(self.api.getTweetsFrom(who, count=cpt,page=i))
+            l.append(self.api.getTweetsFromHashtag(who, count=cpt,page=i))
             c -= cpt
             print(c)
         return l
-

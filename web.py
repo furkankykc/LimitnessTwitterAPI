@@ -1,4 +1,7 @@
 import flask
+
+import auth
+import db
 from test import *
 from flask import Flask, request, render_template, redirect
 from twitterimpl import limitnessTwitter
@@ -9,7 +12,7 @@ def gel(username='furkankykc'):
     renk =["red","blue"]
     count=1
 
-    loginList = [Myauth.default(), Myauth.hannan(), Myauth.pinar(), Myauth.fake()]
+    loginList = [auth.getAuth(user), user in db.getUsers()]
     lt=limitnessTwitter(loginList)
     for i in lt.getProfile(username):
         if i != None:

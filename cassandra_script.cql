@@ -20,6 +20,12 @@ use k1
 
 INSERT INTO user(id,username,password,twitter_api_token,twitter_api_token_secret)  VALUES ('0', 'root', '1234','2288544008-lgy6s9tdgKyeZqxa2QUAZyrnptB8S7NQEF8RNbw','koXqZyKO5Nx5W2OAqGrVsXa8pObQg6ZyzvyJusUEUReP3' );
 
+Create table userApp(
+					author_id text,
+					appToken text,
+					appSecret text,
+					primary key(author_id)
+);
 
 Create table dataset(
 					id uuid,
