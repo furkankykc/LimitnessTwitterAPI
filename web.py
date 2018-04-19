@@ -11,8 +11,7 @@ def gel(username='furkankykc'):
     a = ""
     renk =["red","blue"]
     count=1
-
-    loginList = [auth.getAuth(user), user in db.getUsers()]
+    loginList = [auth.getAuth(i) for i in db.getUsers()]
     lt=limitnessTwitter(loginList)
     for i in lt.getProfile(username):
         if i != None:

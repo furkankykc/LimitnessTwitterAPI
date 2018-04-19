@@ -5,10 +5,14 @@ from cassandra.cqlengine import connection
 from cassandra.cqlengine.management import sync_table
 
 import Myauth
+
+import db
 from entities import tweets,dataset
 from twitterRest import TwitterClient
 from twitterRest import *
-import twitterimpl
+from twitterimpl import *
+from entities import *
+import auth
 
 # def getir(user = "furkankykc"):
 #     api = TwitterClient(auth=Myauth.fake())
@@ -27,4 +31,3 @@ import twitterimpl
   #  [session.execute(stmt, [uuid.uuid1(),status.text,status.author.screen_name,status.created_at])for status in tweets]
 
 #tweets.create(id=uuid.uuid1(),text="deneme",author_id='author.screen_name')
-

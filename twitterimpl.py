@@ -50,7 +50,7 @@ class limitnessTwitter():
             self.api = self.apiL[0][0]
             return loginedAcc
         except Exception:
-            return "Error when login acc"
+            raise Exception("Error when login acc")
 
 
 
