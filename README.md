@@ -1,5 +1,7 @@
 # LimitnessTwitterAPI
-
+|Database   | Cassandra |
+|Webserver  | Flask     |
+|Desktop Ui | Tkinter   |
 Attribution 3.0 Unported (CC BY 3.0)
 This is a human-readable summary of (and not a substitute for) the license. Disclaimer.
 ## You are free to:
